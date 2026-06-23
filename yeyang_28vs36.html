@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生日派對完整規劃 · 野漾莊園 · 28 vs 36人</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+
+  :root {
+    --forest: #2C3B2D;
+    --moss: #4A5E3A;
+    --sage: #7D9B6A;
+    --cream: #F5F0E8;
+    --sand: #E8DFC8;
+    --gold: #C4933F;
+    --warm: #9B7B4E;
+    --text: #1E2A1F;
+    --muted: #6B7C5E;
+    --card: #FDFAF4;
+    --border: rgba(74,94,58,0.15);
+    --red: #C0393A;
+    --green: #3A7A3A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 64px 24px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(196,147,63,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(26px, 5vw, 44px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero h1 span { color: var(--gold); }
+  .hero-sub { font-size: 13px; opacity: 0.6; margin-bottom: 36px; }
+
+  /* TOGGLE */
+  .toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+
+  .toggle {
+    display: flex;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .toggle-btn {
+    padding: 10px 28px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .toggle-btn.active {
+    background: var(--gold);
+    color: var(--forest);
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 640px;
+    margin: 28px auto 0;
+    border: 1px solid rgba(196,147,63,0.3);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 90px;
+    padding: 14px 16px;
+    border-right: 1px solid rgba(196,147,63,0.2);
+    text-align: center;
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-val {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+    transition: all 0.3s;
+  }
+
+  .stat-label { font-size: 10px; opacity: 0.5; letter-spacing: 1px; }
+
+  /* CONTAINER */
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  .section { margin-top: 52px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-icon {
+    font-size: 20px;
+    width: 42px;
+    height: 42px;
+    background: var(--forest);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--forest);
+  }
+
+  .section-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* COMPARE TABLE */
+  .compare-table {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .compare-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: var(--forest);
+    color: var(--cream);
+    font-size: 13px;
+  }
+
+  .compare-header div {
+    padding: 14px 20px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    font-weight: 500;
+  }
+
+  .compare-header div:last-child { border-right: none; }
+  .compare-header .h-28 { color: #A8D4A8; }
+  .compare-header .h-36 { color: #F4C97A; }
+
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .compare-row:last-child { border-bottom: none; }
+
+  .compare-row div {
+    padding: 11px 20px;
+    border-right: 1px solid var(--border);
+  }
+
+  .compare-row div:last-child { border-right: none; }
+
+  .compare-row .c-label { color: var(--muted); font-size: 12px; }
+  .compare-row .c-28 { color: var(--moss); font-weight: 500; }
+  .compare-row .c-36 { color: var(--gold); font-weight: 500; }
+  .compare-row .c-diff-up { color: var(--red); font-size: 11px; }
+  .compare-row .c-diff-same { color: var(--muted); font-size: 11px; }
+
+  .compare-total {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: var(--moss);
+    color: var(--cream);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .compare-total div {
+    padding: 16px 20px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .compare-total div:last-child { border-right: none; }
+  .compare-total .t-28 { color: #C8EAC8; }
+  .compare-total .t-36 { color: var(--gold); }
+
+  /* INCOME COMPARE */
+  .income-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 520px) { .income-compare { grid-template-columns: 1fr; } }
+
+  .income-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .income-head {
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .income-head.h28 { background: #E8F4E8; color: var(--forest); }
+  .income-head.h36 { background: #FBF1E0; color: var(--warm); }
+
+  .income-body { padding: 8px 20px 16px; }
+
+  .i-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--border);
+    gap: 8px;
+  }
+
+  .i-row:last-child { border-bottom: none; }
+  .i-label { color: var(--muted); }
+  .i-val { font-weight: 500; color: var(--text); }
+
+  .i-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: var(--forest);
+    color: var(--cream);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .i-total span:last-child { color: var(--gold); }
+
+  /* STATUS BOX */
+  .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  @media (max-width: 520px) { .status-grid { grid-template-columns: 1fr; } }
+
+  .status-box {
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+
+  .status-box.ok { background: linear-gradient(135deg, #2C3B2D, #4A5E3A); color: var(--cream); }
+  .status-box.warn { background: linear-gradient(135deg, #5E3A2C, #7A4A2C); color: var(--cream); }
+
+  .status-label { font-size: 11px; opacity: 0.6; letter-spacing: 1px; margin-bottom: 6px; }
+  .status-val { font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+  .status-val.green { color: #90EE90; }
+  .status-val.red { color: #FFB366; }
+  .status-note { font-size: 12px; opacity: 0.65; line-height: 1.6; }
+
+  /* SOLUTION BOX */
+  .solution-box {
+    background: var(--sand);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+
+  .solution-box strong {
+    display: block;
+    color: var(--forest);
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .sol-item {
+    display: flex;
+    gap: 8px;
+    padding: 5px 0;
+    color: var(--warm);
+    border-bottom: 1px dashed rgba(155,123,78,0.2);
+    line-height: 1.5;
+  }
+
+  .sol-item:last-child { border-bottom: none; }
+  .sol-item b { color: var(--forest); font-weight: 500; }
+
+  /* AWARDS */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 480px) { .awards-grid { grid-template-columns: 1fr; } }
+
+  .award-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .award-icon { font-size: 22px; flex-shrink: 0; }
+  .award-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .award-how { font-size: 11px; color: var(--muted); }
+  .award-amt-wrap { margin-left: auto; text-align: right; }
+  .award-amt { font-family: 'Noto Serif TC', serif; font-weight: 700; color: var(--gold); font-size: 15px; display: block; transition: all 0.3s; }
+  .award-sub { font-size: 10px; color: var(--muted); }
+
+  /* TIMELINE */
+  .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .timeline { grid-template-columns: 1fr; } }
+
+  .day-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+
+  .day-head {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 13px 18px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .day-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .day-body { padding: 14px 18px; }
+
+  .time-row {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 12px;
+  }
+
+  .time-row:last-child { border-bottom: none; }
+  .time-t { color: var(--gold); font-weight: 500; font-size: 11px; min-width: 48px; padding-top: 2px; flex-shrink: 0; }
+  .time-d strong { display: block; font-weight: 500; color: var(--text); font-size: 12px; }
+  .time-d span { color: var(--muted); font-size: 11px; }
+
+  /* CHECKLIST */
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px) { .check-grid { grid-template-columns: 1fr; } }
+
+  .check-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .check-title { font-size: 13px; font-weight: 500; color: var(--forest); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .check-item { display: flex; gap: 8px; font-size: 12px; color: var(--text); padding: 4px 0; }
+  .check-item::before { content: '□'; color: var(--sage); flex-shrink: 0; }
+
+  /* MISSION */
+  .mission-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+  @media (max-width: 560px) { .mission-grid { grid-template-columns: 1fr; } }
+
+  .mission-col { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .mission-head { padding: 9px 14px; font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+  .mission-head.easy { background: #E8F4E8; color: #3A7A3A; }
+  .mission-head.medium { background: #FFF3E0; color: #A06020; }
+  .mission-head.hard { background: #FDECEA; color: #C0393A; }
+  .mission-items { padding: 10px 14px; }
+  .mission-item { font-size: 12px; padding: 5px 0; border-bottom: 1px dashed var(--border); line-height: 1.5; }
+  .mission-item:last-child { border-bottom: none; }
+
+  /* HIDDEN */
+  .plan-content { display: none; }
+  .plan-content.active { display: block; }
+
+  footer {
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Birthday Party Planning · 野漾莊園 · 新竹橫山</div>
+  <h1>生日派對完整規劃<br><span>28人 vs 36人</span></h1>
+  <p class="hero-sub">兩天一夜 · 豪華帳篷 · 一泊四食 · 星空電影 · 營火宵夜</p>
+
+  <div class="toggle-wrap">
+    <div class="toggle">
+      <button class="toggle-btn active" onclick="switchPlan('28')">28 人方案</button>
+      <button class="toggle-btn" onclick="switchPlan('36')">36 人方案</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-val" id="s-people">28</span>
+      <span class="stat-label">人數</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" id="s-tents">7帳</span>
+      <span class="stat-label">帳篷數</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" id="s-fee">$3,500</span>
+      <span class="stat-label">每人收費</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" id="s-budget">$111,400</span>
+      <span class="stat-label">總預算</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val" id="s-surplus" style="color:#90EE90">+$16,400</span>
+      <span class="stat-label">剩餘緩衝</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 對比總表 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚖️</div>
+      <div>
+        <div class="section-title">兩方案快速對比</div>
+        <div class="section-sub">一眼看清差異</div>
+      </div>
+    </div>
+    <div class="compare-table">
+      <div class="compare-header">
+        <div>項目</div>
+        <div class="h-28">28人方案</div>
+        <div class="h-36">36人方案</div>
+      </div>
+      <div class="compare-row">
+        <div class="c-label">帳篷數</div>
+        <div class="c-28">7帳</div>
+        <div class="c-36">9帳</div>
+      </div>
+      <div class="compare-row">
+        <div class="c-label">住宿費</div>
+        <div class="c-28">$65,800</div>
+        <div class="c-36">$84,600 <span class="c-diff-up">↑$18,800</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="c-label">頂級主餐（7/8月）</div>
+        <div class="c-28">$25,200</div>
+        <div class="c-36">$32,400 <span class="c-diff-up">↑$7,200</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="c-label">遊覽車（台北出發）</div>
+        <div class="c-28">$13,000</div>
+        <div class="c-36">$13,000 <span class="c-diff-same">不變</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="c-label">佈置＋蛋糕＋雜費</div>
+        <div class="c-28">$14,000</div>
+        <div class="c-36">$14,000 <span class="c-diff-same">不變</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="c-label">每人收費</div>
+        <div class="c-28">$3,500</div>
+        <div class="c-36">$3,700</div>
+      </div>
+      <div class="compare-row">
+        <div class="c-label">總預算</div>
+        <div class="c-28">$111,400</div>
+        <div class="c-36">$142,200</div>
+      </div>
+      <div class="compare-row">
+        <div class="c-label">支出合計</div>
+        <div class="c-28">$118,000</div>
+        <div class="c-36">$144,000</div>
+      </div>
+      <div class="compare-total">
+        <div>剩餘緩衝</div>
+        <div class="t-28">+$16,400 ✅</div>
+        <div class="t-36">−$1,800 ⚠️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 28人方案 -->
+  <div class="plan-content active" id="plan-28">
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">💰</div>
+        <div>
+          <div class="section-title">28人 · 預算分析</div>
+          <div class="section-sub">每人 $3,500，贊助 3人 × $3,000</div>
+        </div>
+      </div>
+      <div class="income-compare" style="grid-template-columns:1fr">
+        <div class="income-card">
+          <div class="income-head h28">📥 收入來源</div>
+          <div class="income-body">
+            <div class="i-row"><span class="i-label">28人 × $3,200（活動費）</span><span class="i-val">$89,600</span></div>
+            <div class="i-row"><span class="i-label">28人 × $300（獎金池）</span><span class="i-val">$8,400</span></div>
+            <div class="i-row"><span class="i-label">贊助 3人 × $3,000</span><span class="i-val">$9,000</span></div>
+            <div class="i-row"><span class="i-label">獎金池合計</span><span class="i-val" style="color:var(--gold)">$11,400</span></div>
+          </div>
+          <div class="i-total"><span>活動可用預算</span><span>$98,600 + $9,000 = $107,600</span></div>
+        </div>
+      </div>
+
+      <div class="compare-table" style="margin-top:16px">
+        <div class="compare-header" style="grid-template-columns:1fr auto">
+          <div>支出項目</div>
+          <div>金額</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🏕️ 住宿（7帳 × $9,400）含四餐＋設施</div>
+          <div class="c-28">$65,800</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🥩 頂級主餐加購（28人 × $900，7/8月）</div>
+          <div class="c-28">$25,200</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🚌 Day1 遊覽車單趟（台北→新竹）</div>
+          <div class="c-28">$5,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🚌 Day2 遊覽車10小時包車</div>
+          <div class="c-28">$8,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🌸 花圈拱門佈置</div>
+          <div class="c-28">$4,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🎈 室內氣球佈置</div>
+          <div class="c-28">$3,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🎂 客製生日蛋糕（28人份）</div>
+          <div class="c-28">$3,500</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🎙️ 音響設備租借＋遊戲道具</div>
+          <div class="c-28">$4,500</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🚗 司機餐費＋雜費備用</div>
+          <div class="c-28">$3,000</div>
+        </div>
+        <div class="compare-total" style="grid-template-columns:1fr auto">
+          <div>支出合計</div>
+          <div class="t-28">$121,000</div>
+        </div>
+      </div>
+
+      <div class="status-grid">
+        <div class="status-box ok">
+          <div class="status-label">總預算（含獎金）</div>
+          <div class="status-val green">$111,400</div>
+          <div class="status-note">活動預算 $107,600 + 獎金池 $11,400</div>
+        </div>
+        <div class="status-box ok">
+          <div class="status-label">5/6月入住（含主餐）剩餘</div>
+          <div class="status-val green">+$41,600</div>
+          <div class="status-note">省下 $25,200 主餐費，預算非常充裕</div>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <strong>💡 28人方案建議</strong>
+        <div class="sol-item">🟢 <span><b>5/6月入住</b>：主餐（活龍蝦＋A5和牛）已含，直接省 $25,200，預算大幅寬裕</span></div>
+        <div class="sol-item">🟡 <span><b>7/8月入住</b>：主餐需加購 $900/人，共 $25,200，預算仍在掌控中</span></div>
+        <div class="sol-item">✅ <span>每人只收 <b>$3,500</b>，28人方案整體最輕鬆</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 36人方案 -->
+  <div class="plan-content" id="plan-36">
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">💰</div>
+        <div>
+          <div class="section-title">36人 · 預算分析</div>
+          <div class="section-sub">每人 $3,700，贊助 3人 × $3,000</div>
+        </div>
+      </div>
+      <div class="income-compare" style="grid-template-columns:1fr">
+        <div class="income-card">
+          <div class="income-head h36">📥 收入來源</div>
+          <div class="income-body">
+            <div class="i-row"><span class="i-label">36人 × $3,400（活動費）</span><span class="i-val">$122,400</span></div>
+            <div class="i-row"><span class="i-label">36人 × $300（獎金池）</span><span class="i-val">$10,800</span></div>
+            <div class="i-row"><span class="i-label">贊助 3人 × $3,000</span><span class="i-val">$9,000</span></div>
+            <div class="i-row"><span class="i-label">獎金池合計</span><span class="i-val" style="color:var(--gold)">$13,800</span></div>
+          </div>
+          <div class="i-total"><span>活動可用預算</span><span>$122,400 + $9,000 = $131,400</span></div>
+        </div>
+      </div>
+
+      <div class="compare-table" style="margin-top:16px">
+        <div class="compare-header" style="grid-template-columns:1fr auto">
+          <div>支出項目</div>
+          <div>金額</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🏕️ 住宿（9帳 × $9,400）含四餐＋設施</div>
+          <div class="c-36">$84,600</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🥩 頂級主餐加購（36人 × $900，7/8月）</div>
+          <div class="c-36">$32,400</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🚌 Day1 遊覽車單趟（台北→新竹）</div>
+          <div class="c-36">$5,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🚌 Day2 遊覽車10小時包車</div>
+          <div class="c-36">$8,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🌸 花圈拱門佈置</div>
+          <div class="c-36">$4,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🎈 室內氣球佈置</div>
+          <div class="c-36">$3,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🎂 客製生日蛋糕（36人份）</div>
+          <div class="c-36">$4,000</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🎙️ 音響設備租借＋遊戲道具</div>
+          <div class="c-36">$4,500</div>
+        </div>
+        <div class="compare-row" style="grid-template-columns:1fr auto">
+          <div class="c-label">🚗 司機餐費＋雜費備用</div>
+          <div class="c-36">$3,000</div>
+        </div>
+        <div class="compare-total" style="grid-template-columns:1fr auto">
+          <div>支出合計</div>
+          <div class="t-36">$148,500</div>
+        </div>
+      </div>
+
+      <div class="status-grid">
+        <div class="status-box warn">
+          <div class="status-label">7/8月入住含主餐缺口</div>
+          <div class="status-val red">−$3,300</div>
+          <div class="status-note">需微調：砍主餐自費、或每人再加 $100</div>
+        </div>
+        <div class="status-box ok">
+          <div class="status-label">5/6月入住（含主餐）剩餘</div>
+          <div class="status-val green">+$29,100</div>
+          <div class="status-note">省下主餐 $32,400，預算輕鬆有餘</div>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <strong>💡 36人方案建議</strong>
+        <div class="sol-item">🟢 <span><b>5/6月入住</b>：主餐已含，預算剩餘 $29,100，非常充裕，強烈推薦</span></div>
+        <div class="sol-item">🟡 <span><b>7/8月入住</b>：主餐不加購（各自付），省 $32,400，缺口立即消失</span></div>
+        <div class="sol-item">💡 <span>或每人收費調整為 <b>$3,800</b>，支出即可完整覆蓋含主餐方案</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 行程（兩方案共用） -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🗓️</div>
+      <div>
+        <div class="section-title">兩天一夜行程</div>
+        <div class="section-sub">兩方案相同</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="day-card">
+        <div class="day-head"><div class="day-dot"></div>Day 1</div>
+        <div class="day-body">
+          <div class="time-row"><span class="time-t">10:00</span><div class="time-d"><strong>台北集合出發</strong><span>遊覽車，車程約1小時</span></div></div>
+          <div class="time-row"><span class="time-t">14:00</span><div class="time-d"><strong>抵達野漾 Check-in</strong></div></div>
+          <div class="time-row"><span class="time-t">15:00</span><div class="time-d"><strong>下午茶</strong><span>布朗尼、手工餅乾、咖啡</span></div></div>
+          <div class="time-row"><span class="time-t">16:00</span><div class="time-d"><strong>園區自由探險</strong><span>情人橋、好漢坡、野漾野遊</span></div></div>
+          <div class="time-row"><span class="time-t">17:00</span><div class="time-d"><strong>秘密任務開始</strong><span>發任務卡，開始積點</span></div></div>
+          <div class="time-row"><span class="time-t">18:00</span><div class="time-d"><strong>豪華晚餐饗宴</strong><span>精緻自助餐</span></div></div>
+          <div class="time-row"><span class="time-t">19:30</span><div class="time-d"><strong>切蛋糕·許願·大合唱</strong></div></div>
+          <div class="time-row"><span class="time-t">19:30</span><div class="time-d"><strong>星空電影院</strong></div></div>
+          <div class="time-row"><span class="time-t">21:00</span><div class="time-d"><strong>營火宵夜</strong><span>滷味暖心關東煮</span></div></div>
+          <div class="time-row"><span class="time-t">22:00</span><div class="time-d"><strong>舞台遊戲＋秘密任務PK</strong></div></div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-head"><div class="day-dot"></div>Day 2</div>
+        <div class="day-body">
+          <div class="time-row"><span class="time-t">07:30</span><div class="time-d"><strong>中西式自助早午餐</strong></div></div>
+          <div class="time-row"><span class="time-t">10:00</span><div class="time-d"><strong>野漾池畔尋寶開獎</strong><span>園區安排活動</span></div></div>
+          <div class="time-row"><span class="time-t">10:30</span><div class="time-d"><strong>頒獎典禮</strong><span>秘密任務王＋各大獎項</span></div></div>
+          <div class="time-row"><span class="time-t">11:00</span><div class="time-d"><strong>離營</strong></div></div>
+          <div class="time-row"><span class="time-t">13:00</span><div class="time-d"><strong>抵達台北解散</strong></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 獎項 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🏆</div>
+      <div>
+        <div class="section-title">獎項系統</div>
+        <div class="section-sub" id="award-sub">獎金池 $11,400（28人）</div>
+      </div>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card">
+        <span class="award-icon">📸</span>
+        <div><div class="award-name">最佳素材獎</div><div class="award-how">所有人投票</div></div>
+        <div class="award-amt-wrap"><span class="award-amt" id="a1">$3,000</span></div>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">🎤</span>
+        <div><div class="award-name">最佳表演獎</div><div class="award-how">所有人投票</div></div>
+        <div class="award-amt-wrap"><span class="award-amt" id="a2">$2,000</span></div>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">✨</span>
+        <div><div class="award-name">最用心準備獎</div><div class="award-how">壽星決定</div></div>
+        <div class="award-amt-wrap"><span class="award-amt" id="a3">$1,500</span></div>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">👗</span>
+        <div><div class="award-name">最佳造型獎</div><div class="award-how">所有人投票</div></div>
+        <div class="award-amt-wrap"><span class="award-amt" id="a4">$1,500</span></div>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">🎯</span>
+        <div><div class="award-name">秘密任務王</div><div class="award-how">完成最多任務者</div></div>
+        <div class="award-amt-wrap"><span class="award-amt" id="a5">$2,000</span></div>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">💝</span>
+        <div><div class="award-name">壽星指定獎</div><div class="award-how">壽星隨時頒發</div></div>
+        <div class="award-amt-wrap"><span class="award-amt" id="a6">$1,400</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 秘密任務 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div>
+        <div class="section-title">秘密任務卡</div>
+        <div class="section-sub">每人抽一張，晚上統一公布，完成最多者得獎</div>
+      </div>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-col">
+        <div class="mission-head easy">🟢 簡單</div>
+        <div class="mission-items">
+          <div class="mission-item">跟你不熟的人自拍一張</div>
+          <div class="mission-item">讓人幫你拍帥氣跳躍照</div>
+          <div class="mission-item">偷拍到有人在發呆的瞬間</div>
+          <div class="mission-item">在帳篷區找最美角度拍一張</div>
+        </div>
+      </div>
+      <div class="mission-col">
+        <div class="mission-head medium">🟡 中等</div>
+        <div class="mission-items">
+          <div class="mission-item">說服三個人一起跳同一首副歌</div>
+          <div class="mission-item">讓壽星笑到彎腰並拍下來</div>
+          <div class="mission-item">串聯五個人做同一個動作</div>
+          <div class="mission-item">在沒人察覺下偷換三人的帽子</div>
+        </div>
+      </div>
+      <div class="mission-col">
+        <div class="mission-head hard">🔴 困難</div>
+        <div class="mission-items">
+          <div class="mission-item">組臨時合唱團（至少4人）上台</div>
+          <div class="mission-item">假裝攝影師說服三人讓你拍</div>
+          <div class="mission-item">讓人說「今天是我最快樂的一天」並錄影</div>
+          <div class="mission-item">帶動全場跳同一首舞超過30秒</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 籌備清單 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📌</div>
+      <div>
+        <div class="section-title">籌備清單</div>
+        <div class="section-sub">建議提前 4–6 週開始準備</div>
+      </div>
+    </div>
+    <div class="check-grid">
+      <div class="check-block">
+        <div class="check-title">🏕️ 場地 & 住宿</div>
+        <div class="check-item">確認日期並預訂帳篷數</div>
+        <div class="check-item">確認頂級主餐是否含或加購</div>
+        <div class="check-item">詢問是否允許額外佈置進場</div>
+        <div class="check-item">確認音響設備可否帶入或租借</div>
+        <div class="check-item">確認蛋糕是否可自帶</div>
+      </div>
+      <div class="check-block">
+        <div class="check-title">🚌 交通</div>
+        <div class="check-item">預訂43人座遊覽車（台北出發）</div>
+        <div class="check-item">確認Day2回程時間與路線</div>
+        <div class="check-item">提前告知司機住宿安排</div>
+        <div class="check-item">規劃台北集合地點</div>
+      </div>
+      <div class="check-block">
+        <div class="check-title">🎀 佈置</div>
+        <div class="check-item">聯繫新竹在地氣球佈置師</div>
+        <div class="check-item">訂購或租借花圈拱門</div>
+        <div class="check-item">購買LED燈串</div>
+        <div class="check-item">提前2週訂客製蛋糕</div>
+      </div>
+      <div class="check-block">
+        <div class="check-title">🎯 活動</div>
+        <div class="check-item">設計並印製秘密任務卡</div>
+        <div class="check-item">準備獎品小禮包</div>
+        <div class="check-item">規劃投票方式（Line或紙本）</div>
+        <div class="check-item">找一個人擔任主持人</div>
+        <div class="check-item">確認收費時間與方式</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  野漾莊園 · 新竹縣橫山鄉 · 台北出發約1小時<br>
+  所有費用為估算，實際依入住日期與方案調整
+</footer>
+
+<script>
+  const plans = {
+    '28': {
+      people: '28', tents: '7帳', fee: '$3,500', budget: '$111,400', surplus: '+$16,400', surplusColor: '#90EE90',
+      awards: ['$3,000','$2,000','$1,500','$1,500','$2,000','$1,400'],
+      awardSub: '獎金池 $11,400（28人）'
+    },
+    '36': {
+      people: '36', tents: '9帳', fee: '$3,700', budget: '$142,200', surplus: '−$3,300*', surplusColor: '#FFB366',
+      awards: ['$3,500','$2,500','$2,000','$2,000','$2,300','$1,500'],
+      awardSub: '獎金池 $13,800（36人）'
+    }
+  };
+
+  function switchPlan(plan) {
+    document.querySelectorAll('.toggle-btn').forEach((b,i) => {
+      b.classList.toggle('active', (i===0 && plan==='28') || (i===1 && plan==='36'));
+    });
+
+    document.querySelectorAll('.plan-content').forEach(el => el.classList.remove('active'));
+    document.getElementById('plan-'+plan).classList.add('active');
+
+    const d = plans[plan];
+    document.getElementById('s-people').textContent = d.people;
+    document.getElementById('s-tents').textContent = d.tents;
+    document.getElementById('s-fee').textContent = d.fee;
+    document.getElementById('s-budget').textContent = d.budget;
+    const sv = document.getElementById('s-surplus');
+    sv.textContent = d.surplus;
+    sv.style.color = d.surplusColor;
+
+    document.getElementById('award-sub').textContent = d.awardSub;
+    d.awards.forEach((v,i) => { document.getElementById('a'+(i+1)).textContent = v; });
+  }
+</script>
+</body>
+</html>
