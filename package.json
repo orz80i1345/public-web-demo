@@ -1,0 +1,9 @@
+{
+  "name": "public-web-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static web demo pages",
+  "scripts": {
+    "start": "python3 -m http.server 5173"
+  }
+}

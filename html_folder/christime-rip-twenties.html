@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christine's 30s — RIP Twenties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#E7DCC7;
+    --sand-deep:#DDD0B6;
+    --paper:#F6F1E7;
+    --wine:#6E2C34;
+    --wine-deep:#48191F;
+    --wine-soft:#9A5B60;
+    --taupe:#8C7654;
+    --line:#D6C8AD;
+    --ink:#3A2A22;
+    --gold:#9E7A32;
+    --gold-soft:#C0A05A;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--sand);
+    color:var(--wine);
+    font-family:"Cormorant Garamond","Noto Serif TC",serif;
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  /* faint paper grain / warmth */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(255,252,245,.55), transparent 55%),
+      radial-gradient(90% 60% at 100% 110%, rgba(120,70,45,.06), transparent 60%);
+    mix-blend-mode:normal;
+  }
+
+  .wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- shared type ---------- */
+  .eyebrow{
+    font-family:"Cormorant Garamond",serif;
+    text-transform:uppercase;
+    letter-spacing:.42em;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--gold);
+  }
+  .cjk{font-family:"Noto Serif TC",serif;}
+  .script{font-family:"Pinyon Script",cursive;font-weight:400;}
+
+  /* ---------- ornament ---------- */
+  .ornament{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);}
+  .ornament .rule{height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);}
+  .ornament svg{width:16px;height:16px;opacity:.9;}
+
+  /* ============ HERO ============ */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    text-align:center;
+    padding:96px 32px 72px;
+    position:relative;
+  }
+  .hero .invited{margin-bottom:30px;}
+  .hero h1{
+    font-family:"Playfair Display",serif;
+    font-weight:700;
+    color:var(--wine);
+    font-size:clamp(4rem,15vw,8.6rem);
+    line-height:.92;
+    letter-spacing:-.01em;
+  }
+  .hero h1 em{font-style:italic;font-weight:500;}
+  .hero .subtitle{
+    margin-top:18px;
+    font-family:"Pinyon Script",cursive;
+    font-size:clamp(2rem,6.5vw,3.2rem);
+    color:var(--wine-deep);
+    line-height:1;
+  }
+  .hero .subtitle .arrow{
+    display:inline-block;
+    padding:0 .12em;
+    color:var(--wine-soft);
+    vertical-align:middle;
+  }
+  .hero .subtitle .arrow svg{vertical-align:middle;transform:translateY(-6px);}
+  .hero .dateline{
+    margin-top:44px;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    font-size:.82rem;
+    font-weight:600;
+    color:var(--wine);
+  }
+  .hero .honoree{
+    margin-top:12px;
+    font-family:"Cormorant Garamond",serif;
+    font-size:1.05rem;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+    color:var(--wine-soft);
+  }
+  .hero .honoree .name{
+    font-family:"Pinyon Script",cursive;
+    text-transform:none;
+    letter-spacing:0;
+    font-size:2.1rem;
+    color:var(--wine-deep);
+    vertical-align:-.28em;
+    padding-left:.15em;
+  }
+  .scrollcue{
+    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+    font-family:"Cormorant Garamond",serif;
+    text-transform:uppercase;letter-spacing:.3em;font-size:.62rem;
+    color:var(--taupe);
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .scrollcue span{width:1px;height:38px;background:linear-gradient(var(--taupe),transparent);animation:drip 2.4s ease-in-out infinite;}
+  @keyframes drip{0%,100%{opacity:.3;transform:scaleY(.7);}50%{opacity:1;transform:scaleY(1);}}
+
+  /* ============ ESSENTIALS ============ */
+  .essentials{padding:20px 32px 96px;}
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:56px clamp(28px,6vw,64px);
+    box-shadow:0 30px 60px -40px rgba(74,25,31,.35);
+  }
+  .card-head{text-align:center;margin-bottom:46px;}
+  .card-head .eyebrow{margin-bottom:12px;}
+  .card-head h2{
+    font-family:"Playfair Display",serif;
+    font-weight:600;
+    font-size:2rem;
+    color:var(--wine-deep);
+  }
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:40px 48px;}
+  .field{border-top:1px solid var(--line);padding-top:16px;}
+  .field .label{
+    text-transform:uppercase;letter-spacing:.28em;font-size:.66rem;font-weight:600;
+    color:var(--taupe);margin-bottom:9px;
+  }
+  .field .big{
+    font-family:"Playfair Display",serif;
+    font-size:1.5rem;font-weight:600;color:var(--wine);line-height:1.15;
+  }
+  .field .big small{display:block;font-size:.78rem;letter-spacing:.16em;font-weight:400;color:var(--wine-soft);margin-top:4px;font-family:"Cormorant Garamond",serif;}
+  .field .sub{font-size:1rem;color:var(--wine-soft);margin-top:3px;}
+  .field.full{grid-column:1 / -1;}
+
+  .dress{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:8px;}
+  .dress .day-tag{
+    font-family:"Cormorant Garamond",serif;
+    text-transform:uppercase;letter-spacing:.2em;font-size:.66rem;color:var(--gold);margin-bottom:6px;
+  }
+  .dress h4{
+    font-family:"Playfair Display",serif;font-weight:600;font-size:1.35rem;color:var(--wine);margin-bottom:2px;letter-spacing:.02em;
+  }
+  .dress .dress-cjk{
+    font-family:"Noto Serif TC",serif;font-size:.95rem;letter-spacing:.18em;color:var(--wine-soft);margin-bottom:12px;
+  }
+  .dress .dress-color{
+    font-size:.95rem;letter-spacing:.06em;color:var(--wine);margin-bottom:14px;
+    font-family:"Noto Serif TC",serif;
+  }
+  .dress ul{list-style:none;}
+  .dress li{
+    font-size:.98rem;color:var(--wine-soft);padding-left:18px;position:relative;line-height:1.9;
+    font-family:"Noto Serif TC",serif;
+  }
+  .dress li::before{content:"—";position:absolute;left:0;color:var(--line);}
+  .dress li.no{color:var(--wine);}
+  .dress li.no::before{content:"✕";color:var(--wine);font-size:.8rem;top:.15em;}
+
+  /* ============ ITINERARY ============ */
+  .itinerary{padding:40px 32px 40px;}
+  .sec-head{text-align:center;margin-bottom:64px;}
+  .sec-head .eyebrow{margin-bottom:16px;}
+  .sec-head h2{
+    font-family:"Playfair Display",serif;font-weight:700;
+    font-size:clamp(2.6rem,8vw,4.4rem);color:var(--wine);line-height:1;
+  }
+  .sec-head .cjk-sub{font-family:"Noto Serif TC",serif;letter-spacing:.4em;color:var(--wine-soft);font-size:1rem;margin-top:14px;}
+
+  .day{margin-bottom:80px;}
+  .day-banner{
+    display:flex;align-items:baseline;gap:20px;
+    padding-bottom:20px;margin-bottom:8px;
+    border-bottom:2px solid var(--wine);
+  }
+  .day-banner .num{
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:500;
+    font-size:2.6rem;color:var(--gold);line-height:1;
+  }
+  .day-banner .meta{flex:1;}
+  .day-banner .theme{
+    font-family:"Playfair Display",serif;font-weight:600;font-size:1.5rem;color:var(--wine);letter-spacing:.04em;text-transform:uppercase;
+  }
+  .day-banner .date{
+    font-family:"Cormorant Garamond",serif;text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;color:var(--taupe);margin-top:4px;
+  }
+
+  .timeline{list-style:none;}
+  .slot{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:26px;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .slot:last-child{border-bottom:none;}
+  .slot .time{
+    font-family:"Playfair Display",serif;
+    font-weight:500;
+    font-size:1.18rem;
+    color:var(--wine);
+    text-align:right;
+    white-space:nowrap;
+    letter-spacing:.01em;
+    line-height:1.3;
+  }
+  .slot .time small{display:block;font-size:.68rem;color:var(--wine-soft);letter-spacing:.1em;font-family:"Cormorant Garamond",serif;margin-top:2px;}
+  .slot .event{font-family:"Noto Serif TC",serif;font-size:1.08rem;color:var(--ink);font-weight:400;}
+  .slot .event .en{font-family:"Cormorant Garamond",serif;}
+  .slot .event .note{display:block;font-size:.9rem;color:var(--wine-soft);margin-top:2px;}
+  .slot .event .stack{margin-top:6px;}
+  .slot .event .stack span{display:block;line-height:1.7;}
+
+  .slot.free .event{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--taupe);font-size:1.05rem;}
+  .slot.free .time{color:var(--taupe);}
+
+  /* highlighted farewell slot */
+  .slot.rite{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:3px solid var(--gold);
+    border-radius:2px;
+    padding:22px 24px;
+    margin:12px 0;
+    box-shadow:0 20px 40px -34px rgba(74,25,31,.4);
+  }
+  .slot.rite .event .en{font-family:"Playfair Display",serif;font-weight:600;color:var(--wine-deep);font-size:1.15rem;letter-spacing:.02em;}
+  .slot.rite .event .cjk-title{font-family:"Noto Serif TC",serif;font-weight:600;font-size:1.15rem;color:var(--wine);}
+
+  /* ============ CLOSING ============ */
+  .closing{
+    text-align:center;
+    padding:110px 32px 130px;
+    margin-top:60px;
+    background:var(--wine-deep);
+    color:var(--paper);
+    position:relative;
+  }
+  .closing::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .closing .ornament{margin-bottom:34px;color:var(--gold-soft);}
+  .closing .ornament .rule{background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);}
+  .closing .rip{
+    font-family:"Playfair Display",serif;font-weight:700;font-style:italic;
+    font-size:clamp(2.4rem,8vw,4rem);color:var(--paper);line-height:1.05;
+  }
+  .closing .years{
+    font-family:"Cormorant Garamond",serif;text-transform:uppercase;letter-spacing:.4em;
+    font-size:.8rem;color:var(--gold-soft);margin-top:18px;
+  }
+  .closing .send{
+    font-family:"Pinyon Script",cursive;font-size:2.4rem;color:var(--paper);margin-top:40px;line-height:1.1;
+  }
+  .closing .place{
+    font-family:"Cormorant Garamond",serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.72rem;color:var(--gold-soft);margin-top:26px;opacity:.85;
+  }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:620px){
+    body{font-size:17px;}
+    .wrap{padding:0 22px;}
+    .essentials,.itinerary,.hero{padding-left:22px;padding-right:22px;}
+    .grid2{grid-template-columns:1fr;gap:26px;}
+    .dress{grid-template-columns:1fr;gap:26px;}
+    .card{padding:40px 24px;}
+    .slot{grid-template-columns:74px 1fr;gap:16px;}
+    .slot .time{font-size:1.05rem;}
+    .day-banner{flex-wrap:wrap;gap:8px 16px;}
+    .day-banner .num{font-size:2.1rem;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .scrollcue span{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="invited ornament reveal in">
+    <span class="rule"></span>
+    <span class="eyebrow" style="letter-spacing:.34em">You are invited to the</span>
+    <span class="rule"></span>
+  </div>
+
+  <h1 class="reveal in">RIP <em>Twenties</em></h1>
+
+  <p class="subtitle reveal in">Welcoming a <span class="arrow"><svg viewBox="0 0 60 24" width="52" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 15 C 16 4, 30 22, 44 10"/><path d="M40 6 L46 10 L40 15"/></svg></span> New Chapter</p>
+
+  <p class="dateline reveal in">Aug 01–02 · 2026 · Tainan</p>
+  <p class="honoree reveal in">In honour of <span class="name">Christine</span></p>
+
+  <div class="scrollcue">
+    <span></span>
+    Order of the weekend
+  </div>
+</header>
+
+<!-- ============ ESSENTIALS ============ -->
+<section class="essentials">
+  <div class="wrap">
+    <div class="card reveal">
+      <div class="card-head">
+        <div class="eyebrow">The Essentials</div>
+        <h2>行前須知</h2>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <div class="label">Date &amp; Time</div>
+          <div class="big">6:00 <small>Aug 1st · Sat — 集合出發</small></div>
+        </div>
+        <div class="field">
+          <div class="label">Return</div>
+          <div class="big">23:30 <small>Aug 2nd · Sun — 抵達台北車站</small></div>
+        </div>
+
+        <div class="field">
+          <div class="label">Meeting Point</div>
+          <div class="big">East Exit 03<small>台北車站 · 東三門</small></div>
+        </div>
+        <div class="field">
+          <div class="label">Accommodation</div>
+          <div class="big">Southern Villa<small>Hotel · Tainan 台南</small></div>
+        </div>
+
+        <div class="field full">
+          <div class="label">Dress Code</div>
+          <div class="dress">
+            <div>
+              <div class="day-tag">Day 1</div>
+              <h4>Chill Resort</h4>
+              <div class="dress-cjk cjk">慵懶度假風</div>
+              <div class="dress-color">🤍 🤎 白色、棕色系</div>
+              <ul>
+                <li>棉麻材質</li>
+                <li>Smart Casual（微正式休閒）</li>
+                <li>輕鬆、自在的度假氛圍</li>
+                <li>微正式 Resort Wear</li>
+              </ul>
+            </div>
+            <div>
+              <div class="day-tag">Day 2</div>
+              <h4>Sophisticated Chic</h4>
+              <div class="dress-cjk cjk">優雅都會風</div>
+              <div class="dress-color">🖤 全黑穿搭</div>
+              <ul>
+                <li>Semi-formal（半正式）</li>
+                <li>優雅、經典風格</li>
+                <li>長褲或及膝以上長度的中長裙／長裙</li>
+                <li class="no">不可穿短褲、短裙</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ITINERARY ============ -->
+<section class="itinerary">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">The Order of Ceremony</div>
+      <h2>Itinerary</h2>
+      <div class="cjk-sub">二日行程</div>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day">
+      <div class="day-banner reveal">
+        <span class="num">I</span>
+        <div class="meta">
+          <div class="theme">Grounded</div>
+          <div class="date">Day One · Aug 1st, Saturday</div>
+        </div>
+      </div>
+
+      <ul class="timeline">
+        <li class="slot reveal"><div class="time">6:00</div><div class="event cjk">集合</div></li>
+        <li class="slot reveal"><div class="time">6:30</div><div class="event cjk">出發台南</div></li>
+        <li class="slot reveal"><div class="time">10:30</div><div class="event cjk">抵達台南</div></li>
+        <li class="slot free reveal"><div class="time">10:30<small>– 15:00</small></div><div class="event">自由時間 · 台南漫遊 &amp; 午餐</div></li>
+        <li class="slot reveal"><div class="time">15:00<small>– 15:30</small></div><div class="event cjk">Check in・放行李・休息</div></li>
+        <li class="slot reveal"><div class="time">15:30<small>– 17:00</small></div><div class="event cjk">團康活動 <span class="note">配下午茶</span></div></li>
+        <li class="slot reveal"><div class="time">17:00<small>– 18:15</small></div><div class="event cjk">拍照、拍 <span class="en">reels</span> time</div></li>
+        <li class="slot reveal"><div class="time">18:15</div><div class="event cjk">換運動服</div></li>
+        <li class="slot reveal"><div class="time">18:25</div><div class="event cjk">泳池集合</div></li>
+        <li class="slot reveal"><div class="time">18:30<small>– 19:30</small></div><div class="event cjk">活動與頌缽 <span class="note">Healing session</span></div></li>
+        <li class="slot reveal"><div class="time">19:30<small>– 20:00</small></div><div class="event cjk">休息</div></li>
+        <li class="slot reveal"><div class="time">20:00</div><div class="event cjk"><div class="stack"><span>晚餐 · 飯店的鴛鴦鍋</span><span>Party time <span class="note" style="display:inline">（自由參加）</span></span><span>晚安 · Goodnight</span></div></div></li>
+      </ul>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day">
+      <div class="day-banner reveal">
+        <span class="num">II</span>
+        <div class="meta">
+          <div class="theme">Renewal</div>
+          <div class="date">Day Two · Aug 2nd, Sunday</div>
+        </div>
+      </div>
+
+      <ul class="timeline">
+        <li class="slot reveal"><div class="time">11:00</div><div class="event cjk">退房 <span class="note">飯店有附早餐</span></div></li>
+        <li class="slot reveal"><div class="time">12:00</div><div class="event cjk">前往午餐</div></li>
+        <li class="slot reveal"><div class="time">12:30<small>– 14:00</small></div><div class="event cjk">午餐時間</div></li>
+        <li class="slot reveal"><div class="time">14:00<small>– 17:30</small></div><div class="event cjk">台南遊</div></li>
+        <li class="slot reveal"><div class="time">17:30<small>– 18:00</small></div><div class="event cjk">前往漁光島</div></li>
+        <li class="slot reveal"><div class="time">18:00<small>– 18:15</small></div><div class="event cjk">準備</div></li>
+
+        <li class="slot rite reveal">
+          <div class="time">18:15<small>– 19:00</small></div>
+          <div class="event">
+            <span class="cjk-title">20 的告別式</span>
+            <span class="en" style="display:block;margin-top:4px">A Eulogy for the Twenties</span>
+          </div>
+        </li>
+
+        <li class="slot reveal"><div class="time">19:00<small>– 19:30</small></div><div class="event cjk">簡易晚餐購買</div></li>
+        <li class="slot reveal"><div class="time">19:30</div><div class="event cjk">啟程回台北</div></li>
+        <li class="slot reveal"><div class="time">23:30</div><div class="event cjk">預計抵達台北車站</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<footer class="closing">
+  <div class="wrap">
+    <div class="ornament reveal">
+      <span class="rule"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3 L14 9 L20 9 L15 13 L17 20 L12 16 L7 20 L9 13 L4 9 L10 9 Z"/></svg>
+      <span class="rule"></span>
+    </div>
+    <p class="rip reveal">Here lies a decade,<br>lived fully.</p>
+    <p class="years reveal">Christine's Twenties</p>
+    <p class="send script reveal">See you on the other side of thirty</p>
+    <p class="place reveal">Tainan · Aug 2026</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.reveal:not(.in)');
+    if(prefersReduced || !('IntersectionObserver' in window)){
+      items.forEach(function(el){el.classList.add('in');});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    items.forEach(function(el, i){
+      // gentle stagger for timeline slots within view
+      el.style.transitionDelay = Math.min((i % 6) * 60, 260) + 'ms';
+      io.observe(el);
+    });
+  })();
+</script>
+</body>
+</html>
