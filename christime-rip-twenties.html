@@ -18,6 +18,8 @@
     --taupe:#8C7654;
     --line:#D6C8AD;
     --ink:#3A2A22;
+    --gold:#9E7A32;
+    --gold-soft:#C0A05A;
   }
 
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -56,15 +58,15 @@
     letter-spacing:.42em;
     font-size:.72rem;
     font-weight:600;
-    color:var(--taupe);
+    color:var(--gold);
   }
   .cjk{font-family:"Noto Serif TC",serif;}
   .script{font-family:"Pinyon Script",cursive;font-weight:400;}
 
   /* ---------- ornament ---------- */
-  .ornament{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--wine-soft);}
-  .ornament .rule{height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--line),transparent);}
-  .ornament svg{width:16px;height:16px;opacity:.85;}
+  .ornament{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);}
+  .ornament .rule{height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);}
+  .ornament svg{width:16px;height:16px;opacity:.9;}
 
   /* ============ HERO ============ */
   .hero{
@@ -168,7 +170,7 @@
   .dress{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:8px;}
   .dress .day-tag{
     font-family:"Cormorant Garamond",serif;
-    text-transform:uppercase;letter-spacing:.2em;font-size:.66rem;color:var(--taupe);margin-bottom:6px;
+    text-transform:uppercase;letter-spacing:.2em;font-size:.66rem;color:var(--gold);margin-bottom:6px;
   }
   .dress h4{
     font-family:"Playfair Display",serif;font-weight:600;font-size:1.35rem;color:var(--wine);margin-bottom:2px;letter-spacing:.02em;
@@ -207,7 +209,7 @@
   }
   .day-banner .num{
     font-family:"Playfair Display",serif;font-style:italic;font-weight:500;
-    font-size:2.6rem;color:var(--wine-deep);line-height:1;
+    font-size:2.6rem;color:var(--gold);line-height:1;
   }
   .day-banner .meta{flex:1;}
   .day-banner .theme{
@@ -251,6 +253,7 @@
   .slot.rite{
     background:var(--paper);
     border:1px solid var(--line);
+    border-left:3px solid var(--gold);
     border-radius:2px;
     padding:22px 24px;
     margin:12px 0;
@@ -262,24 +265,32 @@
   /* ============ CLOSING ============ */
   .closing{
     text-align:center;
-    padding:90px 32px 120px;
-    margin-top:20px;
+    padding:110px 32px 130px;
+    margin-top:60px;
+    background:var(--wine-deep);
+    color:var(--paper);
+    position:relative;
   }
-  .closing .ornament{margin-bottom:34px;}
+  .closing::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .closing .ornament{margin-bottom:34px;color:var(--gold-soft);}
+  .closing .ornament .rule{background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);}
   .closing .rip{
     font-family:"Playfair Display",serif;font-weight:700;font-style:italic;
-    font-size:clamp(2.4rem,8vw,4rem);color:var(--wine);line-height:1.05;
+    font-size:clamp(2.4rem,8vw,4rem);color:var(--paper);line-height:1.05;
   }
   .closing .years{
     font-family:"Cormorant Garamond",serif;text-transform:uppercase;letter-spacing:.4em;
-    font-size:.8rem;color:var(--taupe);margin-top:18px;
+    font-size:.8rem;color:var(--gold-soft);margin-top:18px;
   }
   .closing .send{
-    font-family:"Pinyon Script",cursive;font-size:2.2rem;color:var(--wine-deep);margin-top:40px;line-height:1.1;
+    font-family:"Pinyon Script",cursive;font-size:2.4rem;color:var(--paper);margin-top:40px;line-height:1.1;
   }
   .closing .place{
     font-family:"Cormorant Garamond",serif;text-transform:uppercase;letter-spacing:.3em;
-    font-size:.72rem;color:var(--wine-soft);margin-top:26px;
+    font-size:.72rem;color:var(--gold-soft);margin-top:26px;opacity:.85;
   }
 
   /* ---------- reveal ---------- */
