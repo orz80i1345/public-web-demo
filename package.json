@@ -4,6 +4,7 @@
   "private": true,
   "description": "Static web demo pages",
   "scripts": {
-    "start": "python3 -m http.server 5173"
+    "dev": "node scripts/dev-server.mjs",
+    "start": "node scripts/dev-server.mjs --port 5173"
   }
 }
