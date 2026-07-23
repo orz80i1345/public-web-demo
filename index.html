@@ -507,8 +507,13 @@
 
     <!-- pocket: everything below the flap edge -->
     <svg class="env-front" viewBox="0 0 300 210" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <clipPath id="pocketEdgeClip">
+          <path d="M2.45,0 H297.55 V198 Q297.55,207.55 288,207.55 H12 Q2.45,207.55 2.45,198 Z"/>
+        </clipPath>
+      </defs>
       <!-- pocket fill: everything below the flap's V edge -->
-      <path d="M3,14 C3,20 5,24 10,28.5 L150,89.5 L290,28.5 C295,24 297,20 297,14
+      <path d="M3,14 C4.6,19.5 6.9,24.6 10,28.5 L150,89.5 L290,28.5 C293.1,24.6 295.4,19.5 297,14
                L297,198 Q297,207 288,207 L12,207 Q3,207 3,198 Z" fill="#DFD8C5"/>
 
       <!-- side-flap edges: from the flap-edge junction down into the bottom corners -->
@@ -516,12 +521,12 @@
                M189,72.5 L276,190 Q281.5,197.5 288.5,201.5 Q292.5,203.5 294.75,204.75"
             fill="none" stroke="#DC3527" stroke-width="2.6"
             stroke-linecap="round" stroke-linejoin="round"
-            vector-effect="non-scaling-stroke"/>
+            clip-path="url(#pocketEdgeClip)"/>
 
       <!-- fine border: sides + bottom -->
       <path d="M3,12 L3,198 Q3,207 12,207 L288,207 Q297,207 297,198 L297,12"
-            fill="none" stroke="#DC3527" stroke-width="1.2"
-            stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+            fill="none" stroke="#DC3527" stroke-width="1.1"
+            stroke-linecap="round"/>
     </svg>
 
     <!-- printed decorations on the pocket (uniform-scale layer) -->
@@ -615,14 +620,17 @@
     <!-- flap -->
     <div class="env-flap">
       <svg viewBox="0 0 300 210" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <clipPath id="flapEdgeClip"><rect x="2.45" y="0" width="295.1" height="210"/></clipPath>
+        </defs>
         <path d="M3,14 Q3,3 12,3 L288,3 Q297,3 297,14
-                 C297,20 295,24 290,28.5 L150,89.5 L10,28.5 C5,24 3,20 3,14 Z" fill="#DFD8C5"/>
-        <path d="M3,14 C3,20 5,24 10,28.5 L150,89.5 L290,28.5 C295,24 297,20 297,14"
+                 C295.4,19.5 293.1,24.6 290,28.5 L150,89.5 L10,28.5 C6.9,24.6 4.6,19.5 3,14 Z" fill="#DFD8C5"/>
+        <path d="M3,14 C4.6,19.5 6.9,24.6 10,28.5 L150,89.5 L290,28.5 C293.1,24.6 295.4,19.5 297,14"
               fill="none" stroke="#DC3527" stroke-width="2.6" stroke-linejoin="round"
-              stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+              stroke-linecap="round" clip-path="url(#flapEdgeClip)"/>
         <path d="M3,12 Q3,3 12,3 L288,3 Q297,3 297,12"
-              fill="none" stroke="#DC3527" stroke-width="1.2"
-              stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+              fill="none" stroke="#DC3527" stroke-width="1.1"
+              stroke-linecap="round"/>
       </svg>
 
       <!-- CH monogram, on the flap tip -->
