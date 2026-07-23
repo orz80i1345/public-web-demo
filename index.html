@@ -248,6 +248,22 @@
   .slot .event .stack{margin-top:6px;}
   .slot .event .stack span{display:block;line-height:1.7;}
 
+  .slot .event .rite-notes{
+    display:block;
+    margin-top:8px;
+    font-size:.9rem;
+    color:var(--wine-soft);
+    line-height:1.75;
+  }
+  .slot .event .rite-notes span{display:block;}
+  .slot .event .rite-notes a{
+    color:var(--wine);
+    text-decoration:underline;
+    text-underline-offset:3px;
+    text-decoration-thickness:1px;
+  }
+  .slot .event .rite-notes a:hover{color:var(--wine-deep);}
+
   .slot .event .alert{
     display:block;
     margin-top:6px;
@@ -448,7 +464,23 @@
       font-size:.8rem;
     }
     .slot .event{font-size:1.04rem;line-height:1.65;}
-    .slot .event .alert{font-size:.9rem;}
+    .slot .event .rite-notes{
+    display:block;
+    margin-top:8px;
+    font-size:.9rem;
+    color:var(--wine-soft);
+    line-height:1.75;
+  }
+  .slot .event .rite-notes span{display:block;}
+  .slot .event .rite-notes a{
+    color:var(--wine);
+    text-decoration:underline;
+    text-underline-offset:3px;
+    text-decoration-thickness:1px;
+  }
+  .slot .event .rite-notes a:hover{color:var(--wine-deep);}
+
+  .slot .event .alert{font-size:.9rem;}
     .slot.rite{padding:18px 16px;}
     .day-banner{flex-wrap:wrap;gap:8px 16px;}
     .day-banner .num{font-size:2.1rem;}
@@ -687,7 +719,7 @@
                 <li>Semi-formal（半正式）</li>
                 <li>優雅、經典風格</li>
                 <li>長褲或及膝以上長度的中長裙／長裙</li>
-                <li class="no">不可穿短褲、短裙</li>
+                <li class="no">不可穿短褲、短裙；不可過於裸露、太多肌膚</li>
               </ul>
             </div>
           </div>
@@ -722,11 +754,22 @@
         <li class="slot reveal"><div class="time">10:30</div><div class="event cjk">抵達台南</div></li>
         <li class="slot reveal"><div class="time">10:30<small>– 14:30</small></div><div class="event cjk">台南漫遊 &amp; 午餐</div></li>
         <li class="slot reveal"><div class="time">15:00<small>– 15:30</small></div><div class="event cjk">Check in・放行李・休息</div></li>
-        <li class="slot reveal"><div class="time">15:30<small>– 17:00</small></div><div class="event cjk">拍照、拍 <span class="en">reels</span> time</div></li>
+        <li class="slot reveal"><div class="time">15:30<small>– 17:00</small></div><div class="event cjk">拍照、拍 Reels Time</div></li>
         <li class="slot reveal"><div class="time">17:00<small>– 18:15</small></div><div class="event cjk">團康活動 <span class="note">配下午茶</span></div></li>
         <li class="slot reveal"><div class="time">18:15<small>– 18:25</small></div><div class="event cjk">換運動服</div></li>
         <li class="slot reveal"><div class="time">18:25</div><div class="event cjk">泳池集合</div></li>
-        <li class="slot reveal"><div class="time">18:30<small>– 19:30</small></div><div class="event cjk">活動與頌缽 <span class="note">Healing session</span></div></li>
+        <li class="slot rite reveal">
+          <div class="time">18:30<small>– 19:30</small></div>
+          <div class="event">
+            <span class="cjk-title">音療：頌缽瑜珈</span>
+            <span class="en" style="display:block;margin-top:4px">Healing Session</span>
+            <span class="rite-notes cjk">
+              <span>有瑜珈墊｜地點：泳池旁</span>
+              <span style="font-weight:600">可自備小毛巾or毯毯當枕頭，請著運動服</span>
+              <span>師資：<a href="https://www.instagram.com/kiki.yennn?igsh=MTl2ejNpbmt3dnkwdQ==" target="_blank" rel="noopener">@kiki.yennn</a>（40% 瑜珈・60% 音療）</span>
+            </span>
+          </div>
+        </li>
         <li class="slot reveal"><div class="time">19:30<small>– 20:00</small></div><div class="event cjk">休息</div></li>
         <li class="slot reveal"><div class="time">20:00</div><div class="event cjk"><div class="stack"><span>晚餐 · 飯店的鴛鴦鍋</span><span>Party time <span class="note" style="display:inline">（自由參加）</span></span><span>晚安 · Goodnight</span></div></div></li>
       </ul>
