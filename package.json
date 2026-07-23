@@ -8,6 +8,8 @@
   },
   "scripts": {
     "dev": "node scripts/dev-server.mjs",
-    "start": "node scripts/dev-server.mjs --port 5173"
+    "build": "node -e \"const fs=require('fs');const path=require('path');const excluded=new Set(['node_modules','dist','.git','scripts','package.json','package-lock.json']);fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist',{recursive:true});for(const name of fs.readdirSync('.')){if(excluded.has(name))continue;fs.cpSync(name,path.join('dist',name),{recursive:true});}console.log('Build completed: dist/');\"",
+    "start": "node scripts/dev-server.mjs --port 5173",
+    "preview": "node scripts/dev-server.mjs --port 4173 --root dist"
   }
 }
